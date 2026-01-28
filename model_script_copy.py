@@ -1,3 +1,6 @@
+### this just takes pictures on a picam 2 on a raspberry pi
+
+
 from picamzero import Camera
 import os
 import time
