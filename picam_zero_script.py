@@ -1,5 +1,5 @@
 ### this just takes pictures on a picam 2 on a raspberry pi
-
+###not the current one i am using but oh well
 
 from picamzero import Camera
 import os
