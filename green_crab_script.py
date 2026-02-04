@@ -12,7 +12,7 @@ home_dir = os.path.expanduser("~/Documents/crab_pics/green_crabs")
 photo_location = f"{home_dir}/green_crab_{int(time.time())}.jpg"
 
 picam2 = Picamera2()
-preview_config = picam2.create_preview_configuration(main={"size": (1280,720)})
+preview_config = picam2.create_preview_configuration(main={"size": (1640,1232)})
 picam2.configure(preview_config)
 
 picam2.start_preview(Preview.QTGL)
