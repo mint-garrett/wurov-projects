@@ -12,23 +12,26 @@ home_dir = os.path.expanduser("~/Documents/crab_pics/green_crabs")
 photo_location = f"{home_dir}/green_crab_{int(time.time())}.jpg"
 
 picam2 = Picamera2()
-preview_config = picam2.create_preview_configuration(main={"size": (1640,1232)})
-picam2.configure(preview_config)
 
-picam2.start_preview(Preview.QTGL)
+try: ##safety net to make prevent connection error
+  preview_config = picam2.create_preview_configuration(main={"size": (1640,1232)})
+  picam2.configure(preview_config)
+  
+  picam2.start_preview(Preview.QTGL)
+  
+  picam2.start()
+  
+  # i find seven second delay to be the perfect amount of time to snap a pic
+  time.sleep(7)
+  
+  #stores photo in the photo directory
+  picam2.capture_file(photo_location)
 
-picam2.start()
+finally: 
+  picam2.stop_preview()
+  picam2.stop()
+  picam2.close()
 
-# i find seven second delay to be the perfect amount of time to snap a pic
-time.sleep(7)
-
-#stores photo in the photo directory
-picam2.capture_file(photo_location)
-
-##supposedly stops my picam from crashing, i keep running into cpp errors 1500,1501 and 1502
-picam2.stop_preview()
-picam2.stop()
-picam2.close()
-
+time.sleep(5) ###5 second cooldown window so qtgl window securely closes
 print(f"your photo is stored at {photo_location}")
                                         
