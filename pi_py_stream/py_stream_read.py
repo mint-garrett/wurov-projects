@@ -1,3 +1,4 @@
+##creates laptop server for pi to stream video to via ethernet, and processes frames with YOLOv8 model
 import socket
 import struct
 import cv2
