@@ -1,4 +1,4 @@
-##creates server for pi to send frames via ethernet to laptop 
+##streams picam2 frames as jpeg to laptop "server" via ethernet
 import socket
 import struct
 import cv2
